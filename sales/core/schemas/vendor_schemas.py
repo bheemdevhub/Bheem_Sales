@@ -2,7 +2,7 @@ from typing import Optional, List, Dict, Any, Union
 from datetime import date, datetime
 from uuid import UUID
 from pydantic import BaseModel, Field, EmailStr, validator
-from app.modules.sales.core.models.sales_models import CustomerType, CustomerStatus
+from bheem_core.modules.sales.core.models.sales_models import CustomerType, CustomerStatus
 
 
 # Base Schemas
@@ -156,3 +156,4 @@ class VendorRatingUpdate(BaseModel):
     delivery_rating: Optional[float] = Field(None, ge=0, le=5)
     service_rating: Optional[float] = Field(None, ge=0, le=5)
     notes: Optional[str] = None
+

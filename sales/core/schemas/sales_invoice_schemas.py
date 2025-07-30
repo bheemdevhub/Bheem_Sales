@@ -3,7 +3,7 @@ from datetime import date, datetime
 from uuid import UUID
 from decimal import Decimal
 from pydantic import BaseModel, Field, validator, root_validator
-from app.modules.sales.core.models.sales_models import InvoiceStatus
+from bheem_core.modules.sales.core.models.sales_models import InvoiceStatus
 
 
 # Base Schema for Sales Invoice Line Items
@@ -162,3 +162,4 @@ class SalesInvoicePaymentApplication(BaseModel):
     amount: float = Field(..., gt=0)
     payment_date: Optional[date] = None
     notes: Optional[str] = None
+

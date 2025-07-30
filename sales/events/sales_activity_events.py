@@ -40,3 +40,4 @@ class SalesActivityEventDispatcher:
     def _trigger_workflow(self, event: SalesActivityEvent):
         # TODO: Implement workflow trigger logic
         pass
+

@@ -325,3 +325,4 @@ class LeadEventDispatcher:
                     handler(event_dict)
                 except Exception as e:
                     logger.error(f"Error in event handler for {event.event_type}: {e}")
+

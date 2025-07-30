@@ -3,18 +3,18 @@ from sqlalchemy.orm import Session
 from uuid import UUID
 from typing import List, Optional, Dict, Any
 from datetime import datetime, date
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.reporting_schemas import (
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.reporting_schemas import (
     SalesReportCreate, SalesReportResponse, SalesReportFilter,
     SalesDashboardResponse, SalesMetricsResponse, SalesKPIResponse,
     SalesForecastResponse, SalesPerformanceResponse, SalesCommissionResponse,
     SalesLeaderboardResponse, SalesActivitySummaryResponse
 )
-from app.modules.sales.core.services.reporting_service import SalesReportingService
+from bheem_core.modules.sales.core.services.reporting_service import SalesReportingService
 
 router = APIRouter(prefix="/reports", tags=["Sales Reports"])
 
@@ -406,3 +406,4 @@ async def cancel_scheduled_report(
     """Cancel scheduled sales report"""
     service = SalesReportingService(db)
     return service.cancel_scheduled_report(schedule_id, current_user_id, company_id)
+

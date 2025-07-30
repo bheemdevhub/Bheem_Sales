@@ -235,3 +235,4 @@ class SalesGoalTracking(BaseModel):
     remaining_period: int  # days
     projected_completion: Optional[date] = None
     on_track: bool
+

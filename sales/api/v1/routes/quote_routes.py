@@ -2,13 +2,13 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Path, Body
 from sqlalchemy.orm import Session
 from uuid import UUID
 
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.quote_schemas import QuoteCreate, QuoteUpdate, QuoteResponse, QuotePaginatedResponse
-from app.modules.sales.core.services.quote_service import QuoteService
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.quote_schemas import QuoteCreate, QuoteUpdate, QuoteResponse, QuotePaginatedResponse
+from bheem_core.modules.sales.core.services.quote_service import QuoteService
 
 router = APIRouter(prefix="/quotes", tags=["Quotes"])
 
@@ -100,3 +100,4 @@ async def delete_quote(
     db.delete(quote)
     db.commit()
     return {"success": True}
+

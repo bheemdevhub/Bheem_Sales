@@ -10,3 +10,4 @@ class BulkOperationsService:
     def batch_update_payments(self, file):
         # TODO: Implement batch update logic
         return {"status": "updated"}
+

@@ -94,3 +94,4 @@ class SalesAutomationService:
     
     def trigger_automation(self, trigger_type: str, entity_id: UUID, trigger_data: Dict[str, Any]) -> Dict[str, Any]:
         return {"status": "triggered", "message": "Automation triggered successfully"}
+

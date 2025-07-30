@@ -181,3 +181,4 @@ class SalesNotificationResponse(BaseModel):
     
     class Config:
         from_attributes = True
+

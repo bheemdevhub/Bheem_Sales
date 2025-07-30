@@ -6,20 +6,20 @@ from uuid import UUID
 import logging
 from decimal import Decimal
 
-from app.modules.sales.core.models.sales_models import (
+from bheem_core.modules.sales.core.models.sales_models import (
     Customer, SalesOrder, SalesInvoice, Quote, 
     OrderStatus, InvoiceStatus, QuoteStatus,
     SalesOrderLineItem, SalesInvoiceLineItem
 )
-from app.modules.sales.core.schemas.sales_analytics_schemas import (
+from bheem_core.modules.sales.core.schemas.sales_analytics_schemas import (
     SalesDashboardResponse, SalesForecastResponse, SalesPerformanceResponse,
     SalesMetric, SalesKPI, SalesAnalyticsPeriod, SalesForecastItem,
     SalesRepPerformance, ProductPerformance, CustomerSegmentPerformance,
     RegionalPerformance, SalesAnalyticsRequest, SalesComparisonRequest,
     SalesTrendAnalysis, SalesPipelineAnalytics
 )
-from app.modules.auth.core.models.auth_models import User
-from app.shared.models import SKU
+from bheem_core.modules.auth.core.models.auth_models import User
+from bheem_core.shared.models import SKU
 
 logger = logging.getLogger(__name__)
 
@@ -537,3 +537,4 @@ class SalesAnalyticsService:
             {'quarter': '2024-Q1', 'revenue': 145000, 'orders': 290},
             {'quarter': '2024-Q2', 'revenue': 160000, 'orders': 320}
         ]
+

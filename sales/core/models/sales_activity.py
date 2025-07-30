@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.ext.declarative import declarative_base
 from uuid import uuid4
 from datetime import datetime, date
-from app.shared.models import ActivityType, ActivityStatus
+from bheem_core.shared.models import ActivityType, ActivityStatus
 
 Base = declarative_base()
 
@@ -27,4 +27,5 @@ class SalesActivity(Base):
     created_by = Column(PG_UUID(as_uuid=True), nullable=True)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+
 

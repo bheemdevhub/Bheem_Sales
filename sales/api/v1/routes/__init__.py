@@ -2,39 +2,39 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from typing import Dict, Any, List
 from uuid import UUID
 
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
+from bheem_core.shared.models import UserRole
 
 # Import all route modules
-from app.modules.sales.api.v1.routes.customer_routes import router as customer_router
-from app.modules.sales.api.v1.routes.lead_routes import router as lead_router
-from app.modules.sales.api.v1.routes.quote_routes import router as quote_router
-from app.modules.sales.api.v1.routes.orders import router as orders_router
-from app.modules.sales.api.v1.routes.invoices import router as invoices_router
-from app.modules.sales.api.v1.routes.customer_payment_routes import router as payment_router
-from app.modules.sales.api.v1.routes.sales_activity_routes import router as activity_router
-from app.modules.sales.api.v1.routes.sales_analytics_routes import router as analytics_router
-from app.modules.sales.api.v1.routes.vendor_routes import router as vendor_router
-from app.modules.sales.api.v1.routes.bulk_operations_routes import router as bulk_router
-from app.modules.sales.api.v1.routes.crm_routes import router as crm_router
-from app.modules.sales.api.v1.routes.integration_routes import router as integration_router
-from app.modules.sales.api.v1.routes.automation_routes import router as automation_router
-from app.modules.sales.api.v1.routes.reporting_routes import router as reporting_router
+from bheem_core.modules.sales.api.v1.routes.customer_routes import router as customer_router
+from bheem_core.modules.sales.api.v1.routes.lead_routes import router as lead_router
+from bheem_core.modules.sales.api.v1.routes.quote_routes import router as quote_router
+from bheem_core.modules.sales.api.v1.routes.orders import router as orders_router
+from bheem_core.modules.sales.api.v1.routes.invoices import router as invoices_router
+from bheem_core.modules.sales.api.v1.routes.customer_payment_routes import router as payment_router
+from bheem_core.modules.sales.api.v1.routes.sales_activity_routes import router as activity_router
+from bheem_core.modules.sales.api.v1.routes.sales_analytics_routes import router as analytics_router
+from bheem_core.modules.sales.api.v1.routes.vendor_routes import router as vendor_router
+from bheem_core.modules.sales.api.v1.routes.bulk_operations_routes import router as bulk_router
+from bheem_core.modules.sales.api.v1.routes.crm_routes import router as crm_router
+from bheem_core.modules.sales.api.v1.routes.integration_routes import router as integration_router
+from bheem_core.modules.sales.api.v1.routes.automation_routes import router as automation_router
+from bheem_core.modules.sales.api.v1.routes.reporting_routes import router as reporting_router
 
 # Import advanced business routes (with mock dependencies for now)
 try:
-    from app.modules.sales.api.v1.routes.advanced_business_routes import router as advanced_business_router
-    from app.modules.sales.api.v1.routes.enhanced_dashboard_routes import router as enhanced_dashboard_router
+    from bheem_core.modules.sales.api.v1.routes.advanced_business_routes import router as advanced_business_router
+    from bheem_core.modules.sales.api.v1.routes.enhanced_dashboard_routes import router as enhanced_dashboard_router
 except ImportError:
     advanced_business_router = None
     enhanced_dashboard_router = None
 
 # Import custom SKU routes
 try:
-    from app.modules.sku.api.v1.routes.custom_sku_routes import router as custom_sku_router
+    from bheem_core.modules.sku.api.v1.routes.custom_sku_routes import router as custom_sku_router
 except ImportError:
     custom_sku_router = None
     # Create mock routers if imports fail
@@ -132,13 +132,13 @@ router.include_router(automation_router, tags=["Sales Automation"])
 
 # Advanced business features (with error handling)
 try:
-    from app.modules.sales.api.v1.routes.advanced_business_routes import router as advanced_business_router
+    from bheem_core.modules.sales.api.v1.routes.advanced_business_routes import router as advanced_business_router
     router.include_router(advanced_business_router, tags=["Advanced Business Features"])
 except ImportError:
     pass
 
 try:
-    from app.modules.sales.api.v1.routes.enhanced_dashboard_routes import router as enhanced_dashboard_router
+    from bheem_core.modules.sales.api.v1.routes.enhanced_dashboard_routes import router as enhanced_dashboard_router
     router.include_router(enhanced_dashboard_router, tags=["Enhanced Dashboard"])
 except ImportError:
     pass

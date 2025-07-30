@@ -2,18 +2,18 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Path, Body, status
 from sqlalchemy.orm import Session
 from uuid import UUID
 from typing import List, Optional
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.crm_schemas import (
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.crm_schemas import (
     CRMAccountCreate, CRMAccountUpdate, CRMAccountResponse, CRMAccountPaginatedResponse,
     CRMContactCreate, CRMContactUpdate, CRMContactResponse, CRMContactPaginatedResponse,
     CRMInteractionCreate, CRMInteractionResponse, CRMPipelineResponse,
     CRMDashboardResponse, CRMLeadScoringResponse
 )
-from app.modules.sales.core.services.crm_service import CRMService
+from bheem_core.modules.sales.core.services.crm_service import CRMService
 
 router = APIRouter(prefix="/crm", tags=["CRM Management"])
 
@@ -253,3 +253,4 @@ async def bulk_assign_contacts(
     """Bulk assign contacts to a user"""
     service = CRMService(db)
     return service.bulk_assign_contacts(contact_ids, assigned_to, current_user_id, company_id)
+

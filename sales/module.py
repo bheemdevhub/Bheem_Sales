@@ -2,7 +2,7 @@
 
 from typing import Dict, Any, List
 from fastapi import APIRouter
-from app.core.base_module import BaseERPModule
+from bheem_core.core.base_module import BaseERPModule
 
 
 class SalesModule(BaseERPModule):
@@ -239,7 +239,7 @@ class SalesModule(BaseERPModule):
         """Get module models"""
         try:
             from .core.models import sku_models
-            from app.shared.models import SKU
+            from bheem_core.shared.models import SKU
             return {
                 "sku_models": sku_models,
                 "base_sku": SKU
@@ -303,7 +303,7 @@ class SalesModule(BaseERPModule):
         super()._setup_routes()
         try:
             # Import main sales router that includes all routes
-            from app.modules.sales.api.v1.routes import router as sales_main_router
+            from bheem_core.modules.sales.api.v1.routes import router as sales_main_router
             # Include the main sales router with prefix (so /api/sales/sales/...)
             self._router.include_router(sales_main_router, prefix="/sales")
             # Add additional module-specific info endpoints if needed
@@ -329,6 +329,7 @@ class SalesModule(BaseERPModule):
             return {"status": "Sales module fallback active"}
 
     # ...existing code for event subscriptions and handlers...
+
 
 
 

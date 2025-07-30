@@ -2,7 +2,7 @@ from typing import Optional, List, Dict, Any, Union
 from datetime import date, datetime
 from uuid import UUID
 from pydantic import BaseModel, Field, EmailStr, validator
-from app.modules.sales.core.models.sales_models import CustomerType
+from bheem_core.modules.sales.core.models.sales_models import CustomerType
 
 
 # Base Schemas
@@ -163,3 +163,4 @@ class LeadAnalytics(BaseModel):
     average_conversion_time: float = 0  # Average days to convert
     average_lead_value: float = 0
     lead_sources: Dict[str, int] = {}  # Count by source
+

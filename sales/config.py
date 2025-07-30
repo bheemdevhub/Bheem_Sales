@@ -201,3 +201,4 @@ class SalesIntegrationSettings:
     EMAIL_ORDER_TEMPLATE = "order_confirmation_template"
     EMAIL_INVOICE_TEMPLATE = "invoice_template"
     EMAIL_PAYMENT_TEMPLATE = "payment_receipt_template"
+

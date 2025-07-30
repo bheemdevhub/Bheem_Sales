@@ -2,13 +2,13 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Path, Body
 from sqlalchemy.orm import Session
 from uuid import UUID
 
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.vendor_schemas import VendorCreate, VendorUpdate, VendorResponse, VendorPaginatedResponse
-from app.modules.sales.core.services.vendor_service import VendorService
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.vendor_schemas import VendorCreate, VendorUpdate, VendorResponse, VendorPaginatedResponse
+from bheem_core.modules.sales.core.services.vendor_service import VendorService
 
 router = APIRouter(prefix="/vendors", tags=["Vendors"])
 
@@ -100,3 +100,4 @@ async def delete_vendor(
     db.delete(vendor)
     db.commit()
     return {"success": True}
+

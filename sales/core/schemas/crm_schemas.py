@@ -123,3 +123,4 @@ class CRMLeadScoringResponse(BaseModel):
     score: float
     factors: List[str] = []
     recommendations: List[str] = []
+

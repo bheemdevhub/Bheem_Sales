@@ -9,19 +9,19 @@ from io import BytesIO
 import csv
 import json
 
-from app.modules.sales.core.models.sales_models import (
+from bheem_core.modules.sales.core.models.sales_models import (
     Customer, SalesOrder, SalesInvoice, Quote, 
     OrderStatus, InvoiceStatus, QuoteStatus,
     SalesOrderLineItem, SalesInvoiceLineItem, Vendor
 )
-from app.modules.sales.core.schemas.reporting_schemas import (
+from bheem_core.modules.sales.core.schemas.reporting_schemas import (
     SalesReportRequest, SalesReportResponse, ReportData, ReportType, ReportFormat,
     CustomerReportResponse, ProductReportResponse, RevenueReportResponse,
     PipelineReportResponse, TeamPerformanceResponse, ReportSchedule,
     ScheduledReportResponse, ReportExportRequest, ReportExportResponse
 )
-from app.modules.auth.core.models.auth_models import User
-from app.shared.models import SKU
+from bheem_core.modules.auth.core.models.auth_models import User
+from bheem_core.shared.models import SKU
 
 logger = logging.getLogger(__name__)
 
@@ -429,3 +429,4 @@ class SalesReportingService:
             team_metrics=[],
             performance_trends=[]
         )
+

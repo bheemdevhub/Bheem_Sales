@@ -13,8 +13,8 @@ import logging
 
 from sqlalchemy.orm import Session
 from sqlalchemy import func
-from app.core.database import get_db
-from app.shared.models import Company
+from bheem_core.core.database import get_db
+from bheem_core.shared.models import Company
 
 
 class IntegrationType(str, Enum):
@@ -513,3 +513,4 @@ class SalesIntegrationService:
                 "success": False,
                 "error": str(e)
             }
+

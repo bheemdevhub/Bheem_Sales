@@ -1,9 +1,9 @@
 from sqlalchemy.orm import Session
 from uuid import UUID
-from app.modules.sales.core.schemas.sales_activity_schemas import (
+from bheem_core.modules.sales.core.schemas.sales_activity_schemas import (
     SalesActivityCreate, SalesActivityUpdate
 )
-from app.modules.sales.core.models.sales_activity import SalesActivity
+from bheem_core.modules.sales.core.models.sales_activity import SalesActivity
 from typing import List, Tuple, Optional
 
 class SalesActivityService:
@@ -52,3 +52,4 @@ class SalesActivityService:
         self.db.commit()
         self.db.refresh(activity)
         return activity
+

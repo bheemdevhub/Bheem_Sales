@@ -55,3 +55,4 @@ class IntegrationService:
             "error_count": 0,
             "health_score": 100.0
         }
+

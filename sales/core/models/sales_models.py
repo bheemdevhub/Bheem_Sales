@@ -4,7 +4,7 @@ from sqlalchemy import Column, String, Text, Numeric, Date, DateTime, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID, ENUM as PGEnum, JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
-from app.shared.models import BaseModel, Person, AuditMixin, Activity, ActivityType, ActivityStatus, FinancialDocument, DocumentType, DocumentStatus, Rating, RatingType, Tag, TagCategory, SKU, SKUStatus
+from bheem_core.shared.models import BaseModel, Person, AuditMixin, Activity, ActivityType, ActivityStatus, FinancialDocument, DocumentType, DocumentStatus, Rating, RatingType, Tag, TagCategory, SKU, SKUStatus
 import enum
 import uuid
 from datetime import datetime

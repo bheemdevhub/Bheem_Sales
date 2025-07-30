@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, Path, Body
 from sqlalchemy.orm import Session
 from uuid import UUID
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.lead_schemas import LeadCreate, LeadUpdate, LeadResponse, LeadPaginatedResponse
-from app.modules.sales.core.services.lead_service import LeadService
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.lead_schemas import LeadCreate, LeadUpdate, LeadResponse, LeadPaginatedResponse
+from bheem_core.modules.sales.core.services.lead_service import LeadService
 
 router = APIRouter(prefix="/leads", tags=["Leads"])
 
@@ -66,3 +66,4 @@ async def delete_lead(lead_id: str, db: Session = Depends(get_db), company_id: U
     db.delete(lead)
     db.commit()
     return {"success": True}
+

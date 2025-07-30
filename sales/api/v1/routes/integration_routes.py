@@ -2,17 +2,17 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Path, Body, status
 from sqlalchemy.orm import Session
 from uuid import UUID
 from typing import List, Optional, Dict, Any
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.integration_schemas import (
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.integration_schemas import (
     IntegrationConfigCreate, IntegrationConfigUpdate, IntegrationConfigResponse,
     WebhookConfigCreate, WebhookConfigResponse, WebhookEventResponse,
     ExternalSyncRequest, ExternalSyncResponse, IntegrationHealthResponse
 )
-from app.modules.sales.core.services.integration_service import IntegrationService
+from bheem_core.modules.sales.core.services.integration_service import IntegrationService
 
 router = APIRouter(prefix="/integrations", tags=["External Integrations"])
 
@@ -304,3 +304,4 @@ async def update_data_mapping(
     """Update data mapping for integration"""
     service = IntegrationService(db)
     return service.update_data_mapping(integration_name, mapping_config, current_user_id, company_id)
+

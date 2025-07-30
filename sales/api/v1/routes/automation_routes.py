@@ -3,12 +3,12 @@ from sqlalchemy.orm import Session
 from uuid import UUID
 from typing import List, Optional, Dict, Any
 from datetime import datetime, date
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.automation_schemas import (
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.automation_schemas import (
     SalesWorkflowCreate, SalesWorkflowUpdate, SalesWorkflowResponse,
     SalesRuleCreate, SalesRuleUpdate, SalesRuleResponse,
     SalesAutomationTrigger, SalesAutomationAction, SalesAutomationExecutionResponse,
@@ -16,7 +16,7 @@ from app.modules.sales.core.schemas.automation_schemas import (
     SalesTaskCreate, SalesTaskUpdate, SalesTaskResponse,
     SalesReminderCreate, SalesReminderResponse, SalesNotificationResponse
 )
-from app.modules.sales.core.services.automation_service import SalesAutomationService
+from bheem_core.modules.sales.core.services.automation_service import SalesAutomationService
 
 router = APIRouter(prefix="/automation", tags=["Sales Automation"])
 
@@ -383,3 +383,4 @@ async def mark_all_notifications_read(
     """Mark all notifications as read"""
     service = SalesAutomationService(db)
     return service.mark_all_notifications_read(current_user_id, company_id)
+

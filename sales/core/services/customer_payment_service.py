@@ -2,8 +2,8 @@ from typing import List, Optional, Tuple
 from sqlalchemy.orm import Session
 from uuid import UUID
 from datetime import datetime
-from app.modules.sales.core.models.sales_models import CustomerPayment
-from app.modules.sales.core.schemas.customer_payment_schemas import CustomerPaymentCreate, CustomerPaymentUpdate
+from bheem_core.modules.sales.core.models.sales_models import CustomerPayment
+from bheem_core.modules.sales.core.schemas.customer_payment_schemas import CustomerPaymentCreate, CustomerPaymentUpdate
 
 class CustomerPaymentService:
     def __init__(self, db: Session):
@@ -42,3 +42,4 @@ class CustomerPaymentService:
         self.db.delete(payment)
         self.db.commit()
         return True
+

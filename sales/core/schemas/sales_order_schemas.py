@@ -3,7 +3,7 @@ from datetime import date, datetime
 from uuid import UUID
 from decimal import Decimal
 from pydantic import BaseModel, Field, validator, root_validator
-from app.modules.sales.core.models.sales_models import OrderStatus
+from bheem_core.modules.sales.core.models.sales_models import OrderStatus
 
 
 # Base Schema for Sales Order Line Items
@@ -177,3 +177,4 @@ class SalesOrderToInvoiceConversion(BaseModel):
     due_date: Optional[date] = None
     line_items: Optional[List[UUID]] = None  # List of line item IDs to include, if None includes all
     notes: Optional[str] = None
+

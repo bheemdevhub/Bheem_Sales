@@ -2,7 +2,7 @@ from typing import Optional, List, Dict, Any, Union
 from datetime import date, datetime
 from uuid import UUID
 from pydantic import BaseModel, Field, EmailStr, validator, root_validator
-from app.modules.sales.core.models.sales_models import CustomerType, CustomerStatus
+from bheem_core.modules.sales.core.models.sales_models import CustomerType, CustomerStatus
 
 
 # Base Schemas
@@ -153,3 +153,4 @@ class CustomerAnalytics(BaseModel):
     purchase_frequency: float = 0  # Average days between orders
     customer_lifetime_value: float = 0
     payment_performance: float = 0  # Ratio of on-time payments
+

@@ -47,3 +47,4 @@ class SalesEventHandlers:
         """Handle overdue invoice event"""
         self.logger.info(f"Invoice overdue: {event_data}")
         # Send overdue notices, update customer credit status
+

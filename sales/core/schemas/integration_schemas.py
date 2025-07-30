@@ -73,3 +73,4 @@ class IntegrationHealthResponse(BaseModel):
     last_sync: Optional[datetime] = None
     error_count: int
     health_score: float
+

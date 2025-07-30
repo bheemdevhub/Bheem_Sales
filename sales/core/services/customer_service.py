@@ -6,17 +6,17 @@ from datetime import datetime, date
 from uuid import UUID
 import uuid
 
-from app.modules.sales.core.models.sales_models import Customer, CustomerType, CustomerStatus
-from app.modules.sales.core.schemas.customer_schemas import (
+from bheem_core.modules.sales.core.models.sales_models import Customer, CustomerType, CustomerStatus
+from bheem_core.modules.sales.core.schemas.customer_schemas import (
     CustomerCreate, CustomerUpdate, CustomerSearchParams, 
     CustomerActivity
 )
-from app.modules.sales.events.customer_events import (
+from bheem_core.modules.sales.events.customer_events import (
     CustomerEventDispatcher, CustomerCreatedEvent, CustomerUpdatedEvent, 
     CustomerStatusChangedEvent, CustomerCreditLimitChangedEvent,
     CustomerActivityAddedEvent
 )
-from app.shared.models import Activity, ActivityType, ActivityStatus
+from bheem_core.shared.models import Activity, ActivityType, ActivityStatus
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +34,7 @@ class CustomerService:
     # Create operations
     
     def create_customer(self, customer_data: CustomerCreate, current_user_id: UUID, company_id: UUID) -> Customer:
-        from app.shared.models import Person, Contact, Address, BankAccount, Passport
+        from bheem_core.shared.models import Person, Contact, Address, BankAccount, Passport
         import uuid
         person_id = str(uuid.uuid4())
 
@@ -113,7 +113,7 @@ class CustomerService:
     
     def get_customer_by_id(self, customer_id: str, company_id: UUID) -> Optional[dict]:
         """Get a customer by ID and company ID, joined with Person and related tables"""
-        from app.shared.models import Person, Contact, Address, BankAccount, Passport
+        from bheem_core.shared.models import Person, Contact, Address, BankAccount, Passport
         customer = self.db.query(Customer).filter(
             and_(
                 Customer.id == customer_id,
@@ -486,3 +486,4 @@ class CustomerService:
             "customer_lifetime_value": 0.0,  # Would be calculated from multiple tables
             "payment_performance": 0.0  # Would be calculated from invoices/payments table
         }
+

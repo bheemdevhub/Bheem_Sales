@@ -6,19 +6,19 @@ from datetime import datetime, date
 from uuid import UUID
 import uuid
 
-from app.modules.sales.core.models.sales_models import (
+from bheem_core.modules.sales.core.models.sales_models import (
     SalesInvoice, InvoiceStatus, SalesInvoiceLineItem, Customer,
     SalesOrder, OrderStatus, SalesOrderLineItem
 )
-from app.modules.sales.core.schemas.sales_invoice_schemas import (
+from bheem_core.modules.sales.core.schemas.sales_invoice_schemas import (
     SalesInvoiceCreate, SalesInvoiceUpdate, SalesInvoiceLineItemCreate, SalesInvoiceLineItemUpdate,
     SalesInvoiceSearchParams, SalesInvoiceStatusUpdate
 )
-from app.modules.sales.events.sales_document_events import (
+from bheem_core.modules.sales.events.sales_document_events import (
     SalesDocumentEventDispatcher, SalesInvoiceCreatedEvent, SalesInvoiceUpdatedEvent,
     SalesInvoiceStatusChangedEvent, SalesInvoiceSentEvent, SalesInvoicePaidEvent
 )
-from app.shared.models import SKU, Activity, ActivityType, ActivityStatus
+from bheem_core.shared.models import SKU, Activity, ActivityType, ActivityStatus
 
 logger = logging.getLogger(__name__)
 
@@ -710,3 +710,4 @@ class SalesInvoiceService:
             self.db.commit()
         
         return overdue_invoices
+

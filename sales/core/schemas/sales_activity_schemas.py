@@ -2,7 +2,7 @@ from typing import Optional, List, Dict, Any, Union
 from datetime import date, datetime
 from uuid import UUID
 from pydantic import BaseModel, Field, validator
-from app.shared.models import ActivityType, ActivityStatus
+from bheem_core.shared.models import ActivityType, ActivityStatus
 
 
 # Base Schema for Sales Activities
@@ -162,3 +162,4 @@ class UpcomingActivitiesSummary(BaseModel):
     next_week: int = 0
     future: int = 0
     activities: List[SalesActivityResponse] = []
+

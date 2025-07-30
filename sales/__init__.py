@@ -12,7 +12,7 @@ from .core.models.sales_models import (
 )
 
 # Import shared models for easy access
-from app.shared.models import (
+from bheem_core.shared.models import (
     Activity, SKU, SKUStatus, SKUCategory, SKUSubcategory, 
     SKUBillingType, SKUUnitType, Tag, Rating, FinancialDocument
 )
@@ -31,4 +31,5 @@ __all__ = [
     "Activity", "SKU", "SKUStatus", "SKUCategory", "SKUSubcategory",
     "SKUBillingType", "SKUUnitType", "Tag", "Rating", "FinancialDocument"
 ]
+
 

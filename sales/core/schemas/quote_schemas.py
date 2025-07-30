@@ -3,7 +3,7 @@ from datetime import date, datetime
 from uuid import UUID
 from decimal import Decimal
 from pydantic import BaseModel, Field, validator, root_validator
-from app.modules.sales.core.models.sales_models import QuoteStatus
+from bheem_core.modules.sales.core.models.sales_models import QuoteStatus
 
 
 # Base Schema for Quote Line Items
@@ -155,3 +155,4 @@ class QuoteToOrderConversion(BaseModel):
     shipping_address: Optional[Dict[str, str]] = None
     shipping_method: Optional[str] = None
     notes: Optional[str] = None
+

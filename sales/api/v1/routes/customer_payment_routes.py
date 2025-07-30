@@ -2,13 +2,13 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Path, Body
 from sqlalchemy.orm import Session
 from uuid import UUID
 
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.customer_payment_schemas import CustomerPaymentCreate, CustomerPaymentUpdate, CustomerPaymentResponse, CustomerPaymentPaginatedResponse
-from app.modules.sales.core.services.customer_payment_service import CustomerPaymentService
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.customer_payment_schemas import CustomerPaymentCreate, CustomerPaymentUpdate, CustomerPaymentResponse, CustomerPaymentPaginatedResponse
+from bheem_core.modules.sales.core.services.customer_payment_service import CustomerPaymentService
 
 router = APIRouter(prefix="/customer-payments", tags=["Customer Payments"])
 
@@ -98,3 +98,4 @@ async def delete_customer_payment(
     if not success:
         raise HTTPException(status_code=404, detail="Payment not found")
     return {"success": True}
+

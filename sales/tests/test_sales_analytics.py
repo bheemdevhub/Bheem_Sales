@@ -9,3 +9,4 @@ def test_get_sales_forecasts(client):
 def test_get_sales_performance(client):
     response = client.get("/analytics/performance")
     assert response.status_code == 200
+

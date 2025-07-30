@@ -35,3 +35,4 @@ class SalesInvoiceEventDispatcher:
     def dispatch(self, event: SalesInvoiceEvent):
         logger.info(f"Dispatching event: {event.event_type}")
         # ...call handlers...
+

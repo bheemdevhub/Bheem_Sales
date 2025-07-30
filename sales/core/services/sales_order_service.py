@@ -6,20 +6,20 @@ from datetime import datetime, date
 from uuid import UUID
 import uuid
 
-from app.modules.sales.core.models.sales_models import (
+from bheem_core.modules.sales.core.models.sales_models import (
     SalesOrder, OrderStatus, SalesOrderLineItem, Customer, 
     Quote, QuoteStatus
 )
-from app.modules.sales.core.schemas.sales_order_schemas import (
+from bheem_core.modules.sales.core.schemas.sales_order_schemas import (
     SalesOrderCreate, SalesOrderUpdate, SalesOrderLineItemCreate, SalesOrderLineItemUpdate,
     SalesOrderSearchParams, SalesOrderStatusUpdate
 )
-from app.modules.sales.events.sales_document_events import (
+from bheem_core.modules.sales.events.sales_document_events import (
     SalesDocumentEventDispatcher, SalesOrderCreatedEvent, SalesOrderUpdatedEvent, 
     SalesOrderStatusChangedEvent, SalesOrderFulfilledEvent, SalesOrderCancelledEvent, 
     QuoteConvertedToOrderEvent
 )
-from app.shared.models import SKU, Activity, ActivityType, ActivityStatus
+from bheem_core.shared.models import SKU, Activity, ActivityType, ActivityStatus
 
 logger = logging.getLogger(__name__)
 
@@ -498,3 +498,4 @@ class SalesOrderService:
             "discount_percentage": order.discount_percentage,
             "total_amount": total
         }
+

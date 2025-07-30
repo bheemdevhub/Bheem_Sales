@@ -3,15 +3,15 @@ from sqlalchemy.orm import Session
 from uuid import UUID
 from typing import Optional
 
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
-from app.modules.sales.core.schemas.sales_order_schemas import (
+from bheem_core.shared.models import UserRole
+from bheem_core.modules.sales.core.schemas.sales_order_schemas import (
     SalesOrderCreate, SalesOrderUpdate, SalesOrderResponse, SalesOrderPaginatedResponse
 )
-from app.modules.sales.core.services.sales_order_service import SalesOrderService
+from bheem_core.modules.sales.core.services.sales_order_service import SalesOrderService
 
 router = APIRouter(prefix="/orders", tags=["Order Management"])
 
@@ -106,3 +106,4 @@ async def cancel_order(
     company_id: UUID = Depends(get_current_company_id)
 ):
     return SalesOrderService(db).cancel_order(order_id)
+

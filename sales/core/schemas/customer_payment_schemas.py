@@ -3,7 +3,7 @@ from datetime import date, datetime
 from uuid import UUID
 from decimal import Decimal
 from pydantic import BaseModel, Field, validator
-from app.modules.sales.core.models.sales_models import PaymentMethod, PaymentStatus
+from bheem_core.modules.sales.core.models.sales_models import PaymentMethod, PaymentStatus
 
 
 # Base Schema for Customer Payments
@@ -109,3 +109,4 @@ class CustomerPaymentAllocation(BaseModel):
         if v <= 0:
             raise ValueError('Allocation amount must be greater than zero')
         return v
+

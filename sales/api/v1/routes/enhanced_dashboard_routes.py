@@ -8,11 +8,11 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime, date, timedelta
 from uuid import UUID
 
-from app.core.database import get_db
-from app.modules.auth.core.services.permissions_service import (
+from bheem_core.core.database import get_db
+from bheem_core.modules.auth.core.services.permissions_service import (
     require_roles, require_api_permission, get_current_user_id, get_current_company_id
 )
-from app.shared.models import UserRole
+from bheem_core.shared.models import UserRole
 
 router = APIRouter(prefix="/dashboard", tags=["Sales Dashboard"])
 
@@ -559,3 +559,4 @@ async def get_team_performance_widget(
     }
     
     return performance_data
+

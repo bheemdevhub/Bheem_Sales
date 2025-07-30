@@ -6,15 +6,15 @@ from datetime import datetime, date
 from uuid import UUID
 import uuid
 
-from app.modules.sales.core.models.sales_models import Vendor, CustomerType, CustomerStatus
-from app.modules.sales.core.schemas.vendor_schemas import (
+from bheem_core.modules.sales.core.models.sales_models import Vendor, CustomerType, CustomerStatus
+from bheem_core.modules.sales.core.schemas.vendor_schemas import (
     VendorCreate, VendorUpdate, VendorSearchParams, VendorActivity
 )
-from app.modules.sales.events.vendor_events import (
+from bheem_core.modules.sales.events.vendor_events import (
     VendorEventDispatcher, VendorCreatedEvent, VendorUpdatedEvent, 
     VendorStatusChangedEvent, VendorActivityAddedEvent
 )
-from app.shared.models import Activity, ActivityType, ActivityStatus
+from bheem_core.shared.models import Activity, ActivityType, ActivityStatus
 
 logger = logging.getLogger(__name__)
 
@@ -395,3 +395,4 @@ class VendorService:
             "vendors_by_status": {status.value: count for status, count in status_counts},
             "vendors_by_type": {vtype.value: count for vtype, count in type_counts},
         }
+
